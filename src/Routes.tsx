@@ -1,11 +1,17 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
-
+const defaultElemnt = () => {
   return (
-    <div className="App">
-      <h1>Easy QFD</h1>
-    </div>
+      <div>Online</div>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={defaultElemnt()}></Route>
+      </Routes>
+    </BrowserRouter>
+  )
+}
