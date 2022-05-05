@@ -1,16 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {PageLogin} from './pages/PageLogin'
 
-const defaultElemnt = () => {
-  return (
-      <div>Online</div>
-  )
-}
-
-export default function App() {
+export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={defaultElemnt()}></Route>
+        <Route path='/' element={PageLogin()}></Route>
       </Routes>
     </BrowserRouter>
   )
