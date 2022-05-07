@@ -5,7 +5,7 @@ export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={PageLogin()}></Route>
+        <Route path='/' element={<PageLogin/>}></Route>
       </Routes>
     </BrowserRouter>
   )
