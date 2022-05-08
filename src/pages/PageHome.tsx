@@ -1,9 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
+// type PageHomeProbs = {
+//     id?: string 
+// }
 
 export function PageHome() {
 
     //States
+    const { prj } = useParams();
+
+    const [projeto, setProjeto] = useState(!prj ? '' : prj);
 
 
     //Navegações
@@ -21,19 +28,23 @@ export function PageHome() {
         alert('deslogou')
         runRota('')
     }
-    
+
 
     return (
         <>
-        <header>
-            header
-        </header>
-        <main>
-            main
-        </main>
-        <footer>
-            footer
-        </footer>
+            <header>
+                cabeçalho
+            </header>
+            <main>
+                <div id="menu">
+                    menu
+                </div>
+                <div id="corpo">
+                    corpo
+                </div>
+            </main>
+            <footer>
+            </footer>
         </>
     )
 }

@@ -9,6 +9,7 @@ export function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<PageHome/>}></Route>
+        <Route path='/prj/:prj' element={<PageHome/>}></Route>
         <Route path='/auth/in' element={<PageLogin/>}></Route>
         <Route path='/auth/Up' element={<PageAuthUp/>}></Route>
         <Route path='/auth/rst' element={<PageAuthRst/>}></Route>
