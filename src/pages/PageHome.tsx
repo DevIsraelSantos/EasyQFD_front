@@ -1,50 +1,32 @@
-import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-
-// type PageHomeProbs = {
-//     id?: string 
-// }
+import { useParams } from "react-router-dom";
+import { Cabecalho } from "../components/Estruturas/Cabecalho";
+import { Menu } from "../components/Estruturas/Menu";
+import { Rodape } from "../components/Estruturas/Rodape";
+import { Corpo } from "../components/Estruturas/Corpo";
+import { CorpoProjeto } from "../components/Estruturas/CorpoProjeto";
 
 export function PageHome() {
 
-    //States
+    //States and Params
     const { prj } = useParams();
 
-    const [projeto, setProjeto] = useState(!prj ? '' : prj);
-
-
-    //Navegações
-    let navigate = useNavigate()
-
-    const runRota = (rota: string) => {
-
-        const route = `/${rota}`;
-        navigate(route)
-
-    }
-
     //Eventos
-    const btnSignOut = () => {
-        alert('deslogou')
-        runRota('')
+    const selectCorpo = () => {        
+        if (!prj) {
+            return <Corpo />
+        } else {
+            return <CorpoProjeto projeto={prj}/>
+        }
     }
-
 
     return (
         <>
-            <header>
-                cabeçalho
-            </header>
+            <Cabecalho />
             <main>
-                <div id="menu">
-                    menu
-                </div>
-                <div id="corpo">
-                    corpo
-                </div>
+                <Menu />
+                {selectCorpo()}
             </main>
-            <footer>
-            </footer>
+            <Rodape/>
         </>
     )
 }
