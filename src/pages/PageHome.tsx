@@ -4,29 +4,40 @@ import { Menu } from "../components/Estruturas/Menu";
 import { Rodape } from "../components/Estruturas/Rodape";
 import { Corpo } from "../components/Estruturas/Corpo";
 import { CorpoProjeto } from "../components/Estruturas/CorpoProjeto";
+import { useState } from "react";
 
 export function PageHome() {
 
     //States and Params
     const { prj } = useParams();
+    const [projectName, setProjectName] = useState()
 
     //Eventos
-    const selectCorpo = () => {        
+    const selectCorpo = () => {
         if (!prj) {
             return <Corpo />
         } else {
-            return <CorpoProjeto projeto={prj}/>
+            return <CorpoProjeto projeto={prj} />
         }
+    }
+
+    const contruirCabecalho = () => {
+
+        let projeto = (!prj? 'Projetos':prj);
+        console.table({projeto})
+        return (
+            <Cabecalho projectName={projeto} />
+        )
     }
 
     return (
         <>
-            <Cabecalho />
+            {contruirCabecalho()}
             <main>
                 <Menu />
                 {selectCorpo()}
             </main>
-            <Rodape/>
+            <Rodape />
         </>
     )
 }
