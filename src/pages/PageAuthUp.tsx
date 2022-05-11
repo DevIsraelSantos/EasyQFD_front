@@ -12,7 +12,7 @@ export function PageAuthUp() {
 
     }
     const runHome = () => {
-        runRota('')
+        runRota('auth/in')
     }
 
     //Eventos

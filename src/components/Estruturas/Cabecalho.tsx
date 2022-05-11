@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import logo from '../../files/logo1.png'
+import { CgOrganisation } from 'react-icons/cg';
+import { useNavigate } from 'react-router-dom';
 
 type CabecalhoProbs = {
     projectName: string
@@ -7,20 +8,29 @@ type CabecalhoProbs = {
 
 export function Cabecalho(probs: CabecalhoProbs) {
 
-    const [telaName, setTelaName] = useState('');
+    const [nomeTela, setNomeTela] = useState('');
+
+    //Navegações
+    let navigate = useNavigate()
+
+    const runRota = (rota: string) => {
+        const route = `/${rota}`;
+        navigate(route)
+    }
+
+    const clickLogo = () => { runRota('home') }
 
     useEffect(() => {
-        console.log(probs.projectName)
-        setTelaName(probs.projectName)
+        setNomeTela(probs.projectName)
     }, [])
 
     return (
         <header id='header_conteiner'>
-            <div id="header_left">
-                <img src={logo} alt="logo" />
+            <div id="header_left" onClick={clickLogo}>
+                <CgOrganisation />
             </div>
             <div id="header_center">
-                <span>{telaName}</span>
+                <span>{nomeTela}</span>
             </div>
             <div id="header_right">
                 <button id='btn_info'>?</button>

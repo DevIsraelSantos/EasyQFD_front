@@ -16,7 +16,7 @@ export function PageLogin() {
     
     //Eventos
     const btnSignIn = () => {
-        runRota('')
+        runRota('home')
     }
     const btnSignUp = () => {
         runRota('auth/Up')

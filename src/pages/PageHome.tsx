@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
 import { Cabecalho } from "../components/Estruturas/Cabecalho";
-import { Menu } from "../components/Estruturas/Menu";
 import { Rodape } from "../components/Estruturas/Rodape";
 import { Corpo } from "../components/Estruturas/Corpo";
 import { CorpoProjeto } from "../components/Estruturas/CorpoProjeto";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function PageHome() {
+type HomeProps = {
+    novo: boolean
+}
+
+export function PageHome(props: HomeProps) {
 
     //States and Params
     const { prj } = useParams();
@@ -21,20 +24,14 @@ export function PageHome() {
         }
     }
 
-    const contruirCabecalho = () => {
+    useEffect(() => {
 
-        let projeto = (!prj? 'Projetos':prj);
-        console.table({projeto})
-        return (
-            <Cabecalho projectName={projeto} />
-        )
-    }
+    }, [])
 
     return (
         <>
-            {contruirCabecalho()}
+            <Cabecalho projectName={(!prj ? 'Projetos' : prj)} />
             <main>
-                <Menu />
                 {selectCorpo()}
             </main>
             <Rodape />
